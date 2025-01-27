@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const knex = require('knex');
 const knexConfig = require('./knexfile');
+const usersRouter = require('./routes/users');
 
 const app = express();
 const environment = process.env.NODE_ENV || 'development';
@@ -20,6 +21,8 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
+
+app.use('/api/users', usersRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

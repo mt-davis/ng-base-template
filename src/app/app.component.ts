@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterOutlet],
   template: `
-    <h1>Welcome to {{ title }}!</h1>
-  `,
-  styles: []
+    <router-outlet></router-outlet>
+  `
 })
 export class AppComponent {
   title = 'ng-app';
